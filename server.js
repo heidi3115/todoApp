@@ -34,7 +34,6 @@ app.get('/write', (req, res) => {
 
 
 app.post('/add', (req, res) => {
-    res.send('전송완료')
     db.collection('counter').findOne({name: 'postNumber'}, (err, result) => {
         const totalPost = result.totalPost
         db.collection('post').insertOne({_id: totalPost+1, 'title': req.body.title, 'date': req.body.date})
